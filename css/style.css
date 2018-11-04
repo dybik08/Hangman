@@ -1,2 +1,39 @@
+/* Variabes */
+/* Mixins */
 .container {
   margin: 0 5vw; }
+
+body {
+  background-color: #82d2e5; }
+
+h1 {
+  text-align: center; }
+
+#characters {
+  margin: 15px auto;
+  padding: 0;
+  max-width: 900px; }
+  #characters:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+#characters li {
+  text-align: center;
+  float: left;
+  margin: 0 10px 10px 0;
+  list-style: none;
+  width: 35px;
+  height: 30px;
+  padding-top: 10px;
+  background: #fff;
+  color: #c1d72e;
+  cursor: pointer;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  border: solid 1px #fff; }
+  #characters li:hover {
+    background: #c1d72e;
+    border: solid 1px #fff;
+    color: #fff; }

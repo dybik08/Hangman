@@ -1,3 +1,63 @@
+/* Variabes */
+$orange: #ffa600;
+$green: #c1d72e;
+$blue: #82d2e5;
+$grey:#f3f3f3;
+$white: #fff;
+$base-color:$green ;
+
+/* Mixins */
+@mixin corners ($radius) {
+    -moz-border-radius: $radius;
+    -webkit-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin clear {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
 .container {
     margin: 0 5vw;
 }
+
+body{
+    background-color: $blue;
+}
+
+h1{
+    text-align: center;
+}
+
+#characters {
+    @include clear;
+    margin:15px auto;
+    padding:0;
+    max-width:900px;
+}
+
+#characters li {
+    text-align: center;
+    float:left;
+    margin: 0 10px 10px 0;
+    list-style:none;
+    width:35px;
+    height:30px;
+    padding-top:10px;
+    background:$white;
+    color:$base-color;
+    cursor:pointer;
+    @include corners(5px);
+    border: solid 1px $white;
+
+    &:hover{
+        background:$base-color;
+        border: solid 1px $white;
+        color:$white;
+    }
+}
+
