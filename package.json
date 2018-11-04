@@ -1,0 +1,25 @@
+{
+  "name": "hangman",
+  "version": "1.0.0",
+  "description": "Hangman game",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dybik08/Hangman.git"
+  },
+  "author": "Wojciech Dybikowski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dybik08/Hangman/issues"
+  },
+  "homepage": "https://github.com/dybik08/Hangman#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^3.9.1",
+    "gulp-install": "^1.1.0",
+    "gulp-sass": "^4.0.2"
+  }
+}
