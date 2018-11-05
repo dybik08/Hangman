@@ -5,7 +5,7 @@
   text-align: center; }
 
 body {
-  background-color: #82d2e5; }
+  background-color: #fff; }
 
 h1 {
   text-align: center; }
@@ -27,13 +27,13 @@ h1 {
   width: 35px;
   height: 30px;
   padding-top: 10px;
-  background: #fff;
+  background: #f3f3f3;
   color: #c1d72e;
   cursor: pointer;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  border: solid 1px #fff; }
+  border: solid 1px #82d2e5; }
   #lettersButtonsUl li:hover {
     background: #c1d72e;
     border: solid 1px #fff;

@@ -4,7 +4,7 @@ window.onload = () => {
     let letterChosenByPlayer;
     let triesCounter = 0;
     let space = 0;
-    let clickedLetter;
+    let lives = 7;
 
 
     const charactersArray = [
@@ -49,6 +49,11 @@ window.onload = () => {
                     triesCounter += 1;
                 }
             }
+            let index = (wordSelectedForCurrentGame.indexOf(letterChosenByPlayer));
+            if(index === -1){
+                lives -= 1;
+                drawHangman(lives)
+            }
         };
     };
 
@@ -71,6 +76,16 @@ window.onload = () => {
             wordToGuessDiv.appendChild(wordToGuessUl);
             wordToGuessUl.appendChild(letterChosenByPlayer);
         }
+    };
+
+    drawHangman = (lives) => {
+      const image = document.getElementById('hangmanImage');
+      if(lives < 0 ){
+          console.log(lives);
+          image.setAttribute('src', '../img/view0.jpg');
+      }else {
+          image.setAttribute('src', `../img/view${lives}.jpg`);
+      }
     };
 
     createLettersButtonsList();

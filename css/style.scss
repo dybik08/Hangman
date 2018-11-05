@@ -39,7 +39,7 @@ $base-color:$green ;
 }
 
 body{
-    background-color: $blue;
+    background-color: $white;
 }
 
 h1{
@@ -61,11 +61,11 @@ h1{
     width:35px;
     height:30px;
     padding-top:10px;
-    background:$white;
+    background: $grey;
     color:$base-color;
     cursor:pointer;
     @include corners(5px);
-    border: solid 1px $white;
+    border: solid 1px $blue;
 
     &:hover{
         background:$base-color;
