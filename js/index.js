@@ -4,6 +4,7 @@ window.onload = () => {
     let letterChosenByPlayer;
     let triesCounter = 0;
     let space = 0;
+    let clickedLetter;
 
 
     const charactersArray = [
@@ -41,16 +42,16 @@ window.onload = () => {
     onLetterClick = (letterButtonLi) => {
         letterButtonLi.onclick = () => {
             letterChosenByPlayer = (letterButtonLi.innerHTML);
-            letterButtonLi.setAttribute("class", "active");
+            letterButtonLi.setAttribute("class", "active")
             for (let i = 0; i < wordSelectedForCurrentGame.length; i++) {
                 if (wordSelectedForCurrentGame[i] === letterChosenByPlayer) {
+                    guessedLettersArray[i].innerHTML = letterChosenByPlayer;
                     triesCounter += 1;
                 }
             }
         };
-
-
     };
+
 
     showResultForPlayer = () => {
         const wordToGuessDiv = document.getElementById('selectedWordDisplayerDiv');
@@ -59,6 +60,7 @@ window.onload = () => {
             wordToGuessUl.setAttribute('id', 'selectedWordDisplayerUl');
             letterChosenByPlayer = document.createElement('li');
             letterChosenByPlayer.setAttribute('class', 'selectedWordDisplayerLi');
+            console.log(wordSelectedForCurrentGame[i]);
             if (wordSelectedForCurrentGame[i] === "-") {
                 letterChosenByPlayer.innerHTML = "-";
                 space = 1;
