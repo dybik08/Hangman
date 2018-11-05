@@ -21,8 +21,21 @@ $base-color:$green ;
     }
 }
 
+@mixin fade {
+    -moz-transition: all 1s ease-in;
+    -moz-transition:all 0.3s ease-in-out;
+    -webkit-transition:all 0.3s ease-in-out;
+}
+
+@mixin opacity {
+    opacity:0.4;
+    filter:alpha(opacity=40);
+    @include fade;
+}
+
 .container {
     margin: 0 5vw;
+    text-align: center;
 }
 
 body{
@@ -33,14 +46,14 @@ h1{
     text-align: center;
 }
 
-#characters {
+#lettersButtonsUl {
     @include clear;
     margin:15px auto;
     padding:0;
     max-width:900px;
 }
 
-#characters li {
+#lettersButtonsUl li {
     text-align: center;
     float:left;
     margin: 0 10px 10px 0;
@@ -58,6 +71,31 @@ h1{
         background:$base-color;
         border: solid 1px $white;
         color:$white;
+    }
+}
+
+#selectedWordDisplayerUl {
+    margin: 0;
+    display: block;
+    padding: 0;
+}
+
+#selectedWordDisplayerUl li {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    display: inline-block;
+    padding: 0 10px;
+    font-size:1.6em;
+}
+
+.active {
+    @include opacity;
+    cursor:default;
+
+    &:hover{
+        @include fade;
+        @include opacity;
     }
 }
 
