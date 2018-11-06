@@ -21,7 +21,6 @@ window.onload = () => {
 
     let wordSelectedForCurrentGame = selectWordToGuess();
     wordSelectedForCurrentGame = wordSelectedForCurrentGame.replace(/\s/g, "-");
-    console.log(wordSelectedForCurrentGame);
 
     createLettersButtonsList = () => {
         const lettersButtonsDiv = document.getElementById('lettersButtonsDiv');
@@ -42,7 +41,7 @@ window.onload = () => {
     onLetterClick = (letterButtonLi) => {
         letterButtonLi.onclick = () => {
             letterChosenByPlayer = (letterButtonLi.innerHTML);
-            letterButtonLi.setAttribute("class", "active")
+            letterButtonLi.setAttribute("class", "active");
             for (let i = 0; i < wordSelectedForCurrentGame.length; i++) {
                 if (wordSelectedForCurrentGame[i] === letterChosenByPlayer) {
                     guessedLettersArray[i].innerHTML = letterChosenByPlayer;
@@ -65,7 +64,6 @@ window.onload = () => {
             wordToGuessUl.setAttribute('id', 'selectedWordDisplayerUl');
             letterChosenByPlayer = document.createElement('li');
             letterChosenByPlayer.setAttribute('class', 'selectedWordDisplayerLi');
-            console.log(wordSelectedForCurrentGame[i]);
             if (wordSelectedForCurrentGame[i] === "-") {
                 letterChosenByPlayer.innerHTML = "-";
                 space = 1;
@@ -81,14 +79,27 @@ window.onload = () => {
     drawHangman = (lives) => {
       const image = document.getElementById('hangmanImage');
       if(lives < 0 ){
-          console.log(lives);
           image.setAttribute('src', '../img/view0.jpg');
       }else {
           image.setAttribute('src', `../img/view${lives}.jpg`);
       }
+      livesCounter(lives);
+    };
+
+    livesCounter = (lives) => {
+        const livesCounter = document.getElementById('livesCounter');
+        if(lives>1){
+            livesCounter.innerText = `You've got ${lives} tries left`;
+        }else if(lives === 1) {
+            livesCounter.innerText = `You've got last try to cheat death`;
+        }else {
+            livesCounter.innerText = `Bang bang, you're dead!`;
+        }
+
     };
 
     createLettersButtonsList();
     showResultForPlayer();
+
 };
 

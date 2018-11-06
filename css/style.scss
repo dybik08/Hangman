@@ -36,6 +36,7 @@ $base-color:$green ;
 .container {
     margin: 0 5vw;
     text-align: center;
+    height: 95vh;
 }
 
 body{
@@ -44,6 +45,15 @@ body{
 
 h1{
     text-align: center;
+}
+
+p{
+    font-size: 20px;
+}
+
+#lettersButtonsDiv{
+    position: relative;
+    top: -20vh;
 }
 
 #lettersButtonsUl {
@@ -73,11 +83,16 @@ h1{
         color:$white;
     }
 }
+#selectedWordDisplayerDiv{
+    position: relative;
+    top: -20vh;
+}
 
 #selectedWordDisplayerUl {
     margin: 0;
     display: block;
-    padding: 0;
+    padding-bottom: 20px;
+    padding-left: 0px;
 }
 
 #selectedWordDisplayerUl li {
@@ -97,5 +112,11 @@ h1{
         @include fade;
         @include opacity;
     }
+}
+
+#hangmanDrawingArea{
+    position: relative;
+    top: -12vh;
+    z-index: -100;
 }
 

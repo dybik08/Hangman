@@ -2,13 +2,21 @@
 /* Mixins */
 .container {
   margin: 0 5vw;
-  text-align: center; }
+  text-align: center;
+  height: 95vh; }
 
 body {
   background-color: #fff; }
 
 h1 {
   text-align: center; }
+
+p {
+  font-size: 20px; }
+
+#lettersButtonsDiv {
+  position: relative;
+  top: -20vh; }
 
 #lettersButtonsUl {
   margin: 15px auto;
@@ -39,10 +47,15 @@ h1 {
     border: solid 1px #fff;
     color: #fff; }
 
+#selectedWordDisplayerDiv {
+  position: relative;
+  top: -20vh; }
+
 #selectedWordDisplayerUl {
   margin: 0;
   display: block;
-  padding: 0; }
+  padding-bottom: 20px;
+  padding-left: 0px; }
 
 #selectedWordDisplayerUl li {
   position: relative;
@@ -68,3 +81,8 @@ h1 {
     -moz-transition: all 1s ease-in;
     -moz-transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out; }
+
+#hangmanDrawingArea {
+  position: relative;
+  top: -12vh;
+  z-index: -100; }
