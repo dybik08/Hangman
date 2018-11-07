@@ -21,7 +21,6 @@ window.onload = () => {
 
     let wordSelectedForCurrentGame = selectWordToGuess();
     wordSelectedForCurrentGame = wordSelectedForCurrentGame.replace(/\s/g, "-");
-    console.log(wordSelectedForCurrentGame);
 
     createLettersButtonsList = () => {
         const lettersButtonsDiv = document.getElementById('lettersButtonsDiv');
@@ -46,7 +45,11 @@ window.onload = () => {
             for (let i = 0; i < wordSelectedForCurrentGame.length; i++) {
                 if (wordSelectedForCurrentGame[i] === letterChosenByPlayer) {
                     guessedLettersArray[i].innerHTML = letterChosenByPlayer;
-
+                    triesCounter += 1;
+                    if(triesCounter === wordSelectedForCurrentGame.length){
+                        const livesCounter = document.getElementById('livesCounter');
+                        livesCounter.innerText = `Congratz bro! You won!`;
+                    }
                 }
             }
             let index = (wordSelectedForCurrentGame.indexOf(letterChosenByPlayer));
@@ -107,7 +110,6 @@ window.onload = () => {
           }
       }
     };
-
     createLettersButtonsList();
     showResultForPlayer();
 
