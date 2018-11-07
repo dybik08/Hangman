@@ -110,6 +110,14 @@ window.onload = () => {
           }
       }
     };
+
+    restartGame = () => {
+      const restartGameButton = document.getElementById('restartGameButton');
+      restartGameButton.onclick = () => {
+          location.reload(false)
+      }
+    };
+
     createLettersButtonsList();
     showResultForPlayer();
 
