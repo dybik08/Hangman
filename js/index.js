@@ -21,6 +21,7 @@ window.onload = () => {
 
     let wordSelectedForCurrentGame = selectWordToGuess();
     wordSelectedForCurrentGame = wordSelectedForCurrentGame.replace(/\s/g, "-");
+    console.log(wordSelectedForCurrentGame);
 
     createLettersButtonsList = () => {
         const lettersButtonsDiv = document.getElementById('lettersButtonsDiv');
@@ -45,16 +46,18 @@ window.onload = () => {
             for (let i = 0; i < wordSelectedForCurrentGame.length; i++) {
                 if (wordSelectedForCurrentGame[i] === letterChosenByPlayer) {
                     guessedLettersArray[i].innerHTML = letterChosenByPlayer;
-                    triesCounter += 1;
+
                 }
             }
             let index = (wordSelectedForCurrentGame.indexOf(letterChosenByPlayer));
             if(index === -1){
                 lives -= 1;
-                drawHangman(lives)
+                drawHangman(lives);
+                displayWordToGuess(lives);
             }
         };
     };
+
 
 
     showResultForPlayer = () => {
@@ -67,7 +70,7 @@ window.onload = () => {
             if (wordSelectedForCurrentGame[i] === "-") {
                 letterChosenByPlayer.innerHTML = "-";
                 space = 1;
-            } else {
+            }else {
                 letterChosenByPlayer.innerHTML = "_";
             }
             guessedLettersArray.push(letterChosenByPlayer);
@@ -93,9 +96,16 @@ window.onload = () => {
         }else if(lives === 1) {
             livesCounter.innerText = `You've got last try to cheat death`;
         }else {
-            livesCounter.innerText = `Bang bang, you're dead!`;
+            livesCounter.innerText = `Bang bang, you're dead! Click any of the remaining letters to show the word you had to guess`;
         }
+    };
 
+    displayWordToGuess = (lives) => {
+      for(let i = 0; i<wordSelectedForCurrentGame.length; i++){
+          if(lives === -1){
+              guessedLettersArray[i].innerHTML = wordSelectedForCurrentGame[i];
+          }
+      }
     };
 
     createLettersButtonsList();
