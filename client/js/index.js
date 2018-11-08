@@ -1,10 +1,17 @@
+
 window.onload = () => {
 
-    let guessedLettersArray = [];
-    let letterChosenByPlayer;
-    let triesCounter = 0;
-    let space = 0;
-    let lives = 7;
+    function fetchData(){
+        document.getElementById('loader').innerText = 'Loading Game!';
+        axios.get('http://localhost:8000/api/results')
+            .then(dataInPromise => {
+                const loader = document.getElementById('loader');
+                loader.parentNode.removeChild(loader);
+                startGame();
+                return dataInPromise.data
+            });
+    }
+
 
     startGame = () => {
         let guessedLettersArray = [];
@@ -116,7 +123,6 @@ window.onload = () => {
         drawHangman(lives)
     };
 
-    startGame();
 
     document.getElementById('restartGameButton').onclick = () => {
 
@@ -128,6 +134,10 @@ window.onload = () => {
 
         startGame();
     };
-
+    fetchData();
 };
+
+
+
+
 
