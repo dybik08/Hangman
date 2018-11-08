@@ -4,20 +4,20 @@ let browserSync = require('browser-sync');
 let reload = browserSync.reload;
 
 gulp.task('sass', function () {
-    gulp.src('css/style.scss')
+    gulp.src('client/css/style.scss')
         .pipe(sass({includePaths: ['scss']}))
-        .pipe(gulp.dest('css'));
+        .pipe(gulp.dest('./client/css'));
 });
 
 gulp.task('browser-sync', function() {
-    browserSync.init(["css/*.css", "js/*.js", "index.html"], {
+    browserSync.init(["client/css/*.css", "client/js/*.js", "client/index.html"], {
         server: {
-            baseDir: "./"
+            baseDir: "./client"
         }
     });
 });
 
 gulp.task('default', ['sass', 'browser-sync'], function () {
-    gulp.watch("css/*.scss", ['sass']);
+    gulp.watch("client/css/*.scss", ['sass']);
     gulp.watch("*.html").on("change", reload);
 });
