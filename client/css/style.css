@@ -89,7 +89,7 @@ p {
 
 #restartGameButton {
   position: relative;
-  top: -15vh;
+  top: -18vh;
   width: 200px;
   height: 50px;
   color: #c1d72e;
@@ -111,3 +111,7 @@ p {
     box-shadow: 0 0 0 30px rgba(192, 192, 192, 0), 0 0 0 0 rgba(192, 192, 192, 0); }
   100% {
     box-shadow: 0 0 0 0 rgba(192, 192, 192, 0), 0 0 0 0 rgba(192, 192, 192, 0); } }
+
+#category {
+  position: relative;
+  top: -20vh; }

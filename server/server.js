@@ -20,14 +20,14 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(function(req, res, next) {
     res.header('Access-Control-Allow-Origin', "*");
-    res.header('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Methods','GET');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     next();
 });
 
-findAll = (req, res) =>{
+findAll = (req, res) => {
     db.collection("owoce").find().toArray(function(err, data) {
-        res.send(data);
+        res.send(data[0].fruits);
     });
 };
 

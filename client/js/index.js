@@ -1,40 +1,39 @@
 
 window.onload = () => {
 
-    function fetchData(){
+    let wordsForGame;
+
+    const fetchData = () => {
         document.getElementById('loader').innerText = 'Loading Game!';
         axios.get('http://localhost:8000/api/results')
-            .then(dataInPromise => {
+            .then(fetchedData => {
                 const loader = document.getElementById('loader');
                 loader.parentNode.removeChild(loader);
-                startGame();
-                return dataInPromise.data
+                startGame(fetchedData.data);
+                wordsForGame = fetchedData.data;
             });
-    }
 
+    };
 
-    startGame = () => {
+    const startGame = (fetchedData) => {
         let guessedLettersArray = [];
         let letterChosenByPlayer;
         let triesCounter = 0;
         let space = 0;
         let lives = 7;
 
-
         const charactersArray = [
             'a', 'ą', 'b', 'c', 'ć', 'd', 'e', 'ę', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'ł', 'm', 'n', 'ń', 'o', 'ó', 'p', 'r', 's', 'ś', 't', 'q', 'u', 'w', 'x', 'y', 'z', 'ź', 'ż'
         ];
 
-        const fruits = [
-            'truskawka', 'melon', 'cytryna', 'śliwka', 'pomarańcza'
-        ];
-
-        let wordSelectedForCurrentGame = fruits[Math.floor(Math.random() * fruits.length)];
+        const wordsTable = Object.values(fetchedData);
+        let wordSelectedForCurrentGame = wordsTable[Math.floor(Math.random() * wordsTable.length)];
         wordSelectedForCurrentGame = wordSelectedForCurrentGame.replace(/\s/g, "-");
 
         createLettersButtonsList = () => {
             const lettersButtonsDiv = document.getElementById('lettersButtonsDiv');
             const lettersButtonsUl = document.createElement('ul');
+            document.getElementById('category').innerText = "Category: Fruits!";
 
             for (let i = 0; i < charactersArray.length; i++) {
                 let letterButtonLi = document.createElement('li');
@@ -131,9 +130,9 @@ window.onload = () => {
 
         wordToGuessUl.parentNode.removeChild(wordToGuessUl);
         lettersButtonsUl.parentNode.removeChild(lettersButtonsUl);
-
-        startGame();
+        startGame(wordsForGame);
     };
+
     fetchData();
 };
 
