@@ -25,15 +25,18 @@ window.onload = () => {
         const charactersArray = [
             'a', 'ą', 'b', 'c', 'ć', 'd', 'e', 'ę', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'ł', 'm', 'n', 'ń', 'o', 'ó', 'p', 'r', 's', 'ś', 't', 'q', 'u', 'w', 'x', 'y', 'z', 'ź', 'ż'
         ];
+        let selectedCategory = fetchedData[Math.floor(Math.random() * fetchedData.length)];
 
-        const wordsTable = Object.values(fetchedData);
+        const keysTable = Object.keys(selectedCategory);
+        const wordsTable = Object.values(selectedCategory[keysTable[1]]);
         let wordSelectedForCurrentGame = wordsTable[Math.floor(Math.random() * wordsTable.length)];
         wordSelectedForCurrentGame = wordSelectedForCurrentGame.replace(/\s/g, "-");
+
 
         createLettersButtonsList = () => {
             const lettersButtonsDiv = document.getElementById('lettersButtonsDiv');
             const lettersButtonsUl = document.createElement('ul');
-            document.getElementById('category').innerText = "Category: Fruits!";
+            document.getElementById('category').innerText = `Category: ${keysTable[1]}`;
 
             for (let i = 0; i < charactersArray.length; i++) {
                 let letterButtonLi = document.createElement('li');

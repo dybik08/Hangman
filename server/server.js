@@ -1,8 +1,6 @@
 const express = require('express');
 const bodyParser= require('body-parser');
-// const _ = require('lodash');
 const app = express();
-const ObjectId = require('mongodb').ObjectId;
 
 const MongoClient = require('mongodb').MongoClient;
 
@@ -26,8 +24,8 @@ app.use(function(req, res, next) {
 });
 
 findAll = (req, res) => {
-    db.collection("owoce").find().toArray(function(err, data) {
-        res.send(data[0].fruits);
+    db.collection("words").find().toArray(function(err, data) {
+        res.send(data);
     });
 };
 
