@@ -21,3 +21,6 @@ Technologies used in this project:
     * server is available at localhost:8000
  4. Start client in first terminal session via **gulp** command in terminal window
     * client is available at localhost:3000
+    
+    
+    Hangman image source: http://www.flashbynight.com/tutes/hangmanhtml5/
